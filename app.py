@@ -14,7 +14,7 @@ def index():
     data=cur.fetchall()
     return render_template ("index.html", datas=data)
 
-@app.route("/add.user", methods=["POST", "GET"])
+@app.route("/add_user", methods=["POST", "GET"])
 def add_user():
     if request.method=="POST":
         nome=request.form["nome"]
@@ -27,8 +27,8 @@ def add_user():
         con=sql.connect("form_db.db")
         cur=con.cursor()
         cur.execute("insert into users(NOME,IDADE,RUA,CIDADE,NUMERO,ESTADO,EMAIL) values(?,?,?,?,?,?,?)", (nome, idade, rua, cidade, numero, estado, email))
-        con.commit
-        flash("Dados cadastrados", "sucess")
+        con.commit()
+        flash("Dados cadastrados", "success")
         return redirect(url_for("index"))
     return render_template("add_user.html")
 
@@ -57,10 +57,10 @@ def edit_user(id):
     return render_template("edit_user.html", datas=data)
 
 @app.route("/delete_user/<string:id>", methods=["GET"])
-def delete(id):
+def delete_user(id):
     con=sql.connect("form_db.db")
     cur=con.cursor()
-    cur.execute("delete from users where ID=?", (id))
+    cur.execute("delete from users where ID=?", (id,))
     con.commit()
     flash("Dados deletados", "warning")
     return redirect(url_for("index"))
