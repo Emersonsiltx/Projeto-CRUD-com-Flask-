@@ -7,7 +7,7 @@ Ler - Visualizar
 Atualizar - Editar
 Deletar - Excluir
 
-## 🛠 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - [Python 3.10+](https://www.python.org/)
 - [Flask](https://flask.palletsprojects.com/)
@@ -29,7 +29,6 @@ edit_user.html # Formulário de edição
 
 ## Como Executar o Projeto
 
-### 1 Clone o repositório
 ```bash
 git clone https://github.com/seu-usuario/crud-flask.git
 cd crud-flask
